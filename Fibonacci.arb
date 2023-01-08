@@ -1,0 +1,20 @@
+=begin Fibonacci
+
+push 0 into an array
+input a number, push into array
+add the 0 and number together, and push result into the array,
+add the second and third value together and push result
+repeat until 10 additions are completed
+
+print result
+=end
+
+fibonacci = [0]
+print "input number: "
+fibonacci.push gets.chomp.to_i
+
+10.times do
+    fibonacci.push (fibonacci[-1] + fibonacci[-2])
+end
+
+print fibonacci

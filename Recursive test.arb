@@ -1,0 +1,14 @@
+#recursive test because i didn't understand it at first
+
+def countdown(a)
+    if a == 0
+        return 0
+    else
+        print "#{a} "
+        return countdown (a - 1)
+    end
+end
+
+for a in 0..10 do
+    puts countdown(a)
+end

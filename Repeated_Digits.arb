@@ -1,0 +1,47 @@
+=begin Repeated digits check
+
+input number
+split digits into characters in array (.split?)
+compare index 0 to 1, if equal compare 1 to 2, etc, until all are processed
+true/false whether digits are repeating
+=end
+
+class Repeated
+    def initialize(value)
+        if value < 10
+            "invalid number!"
+        else
+            @target = value.to_s.chars #alternatively, use modulus and /10
+            @target.each { |a| a.to_i }
+        end
+    end
+
+    def compare
+        for item in @target
+            if @target[0] != item
+                puts "This number is not one repeated digit!"
+                return
+            end
+        end
+        puts "This number is one repeated digit!"
+    end
+
+    def altcompare(a,b) #using recursion as practice
+        if @target[a] == @target[b]
+            if b == (@target.count - 1)
+                puts "This number is one repeated digit!"
+            else
+                compare(a+1, b+1)
+            end
+        else
+            puts "This number is not one repeated digit!"
+        end
+    end
+end
+
+print "Input number: "
+value = gets.chomp.to_i
+
+object = Repeated.new(value)
+puts object.compare
+puts object.altcompare(0,1)

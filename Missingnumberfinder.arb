@@ -1,0 +1,21 @@
+=begin Missing number finder
+
+generate 1..20, shuffle, delete 1-5 values (random amount)
+print array
+compare to a clean 1..20 and identify missing number(s)
+print missing numbers
+
+=end
+
+cleansequence = Array.new
+for a in 1..20 do
+    cleansequence.push(a)
+end
+sequence = cleansequence.shuffle
+rand(1..5).times {sequence.pop}
+#--------------------------------------------
+
+puts "Finding missing numbers in following sequence between 1 and 20:"
+print sequence
+puts ""
+print (cleansequence - sequence) #this is a very simple solution that only works in this controlled context

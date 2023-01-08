@@ -1,0 +1,13 @@
+=begin Multiplication
+
+generate two values between 1 and 10
+add a to itself b-1 times
+
+=end
+
+a = rand(1..10)
+b = rand(1..10)
+c = a
+print "#{a} * #{b} = "
+(b-1).times {c += a }
+print c

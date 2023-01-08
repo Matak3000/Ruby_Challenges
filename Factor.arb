@@ -1,0 +1,53 @@
+=begin factor finder (+ prime identifier)
+
+input number
+push itself to array
+divide by every number below itself
+if an int (no decimal) unshift into array
+
+print array
+if array is just 1 and original number print "number is prime"
+=end
+
+class FactorFinder
+
+    def initialize(value)
+        @target = value
+        @factors = [@target]
+    end
+    
+    def divide(a, b)
+        r = a.to_f / b
+        if b == 1 #Terminate recursion
+            @factors.unshift(b)
+        else 
+            if r == r.to_i
+                @factors.unshift(b)
+            end
+            divide(a, b-1)
+        end
+
+    end
+
+    def findfactors
+        @factors = [@target]
+        divide(@target, @target-1)
+        return @factors
+    end
+
+    def primecheck
+        findfactors
+        if @factors == [1, @target]
+            puts "Target is a prime number!"
+        end
+    end
+
+end
+
+print "Input number: "
+value = gets.chomp.to_i
+
+object = FactorFinder.new(value)
+print object.findfactors 
+puts ""
+object.primecheck
