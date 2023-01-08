@@ -1,7 +1,7 @@
 =begin Repeated digits check
 
 input number
-split digits into characters in array (.split?)
+split digits into characters in array
 compare index 0 to 1, if equal compare 1 to 2, etc, until all are processed
 true/false whether digits are repeating
 =end
